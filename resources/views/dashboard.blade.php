@@ -124,9 +124,9 @@
         </div>
     </div>
 </div>
-
+{{-- 
 <!DOCTYPE HTML>
-<html>
+<html> --}}
 
 <head>
     <h4 class="mb-0 text-center">Data Customer - Berdasarkan Pendidikan</h4><br>
@@ -266,6 +266,6 @@ function explodePie (e) {
     <div id="chartcContainer" style="height: 300px; width: 100%;"></div>
 </body>
 
-</html>
+{{-- </html> --}}
 @endsection
 </div>

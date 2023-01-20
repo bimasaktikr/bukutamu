@@ -82,5 +82,5 @@
             data bagi pemerintah dan masyarakat.</p>
         <a class="btn btn-success btn-sm" href="https://malangkota.bps.go.id/">Kunjungi Website</a>
     </div>
+    @endcan
 </ul>
-@endcan
