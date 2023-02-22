@@ -59,4 +59,5 @@
         </li>
 
     </ul>
-</nav><?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/Layouts/navbar.blade.php ENDPATH**/ ?>
+</nav>
+<?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/Layouts/navbar.blade.php ENDPATH**/ ?>

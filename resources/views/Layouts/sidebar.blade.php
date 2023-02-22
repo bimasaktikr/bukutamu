@@ -36,7 +36,7 @@
     </li>
     @endcan
 
-    @can('role',['Super Admin','Admin'])
+    @can('role',['Super Admin','admin'])
     <li class="nav-item">
         <a class="nav-link" href="{{url('/')}}">
             <i class="fas fa-users"></i>

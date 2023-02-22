@@ -66,10 +66,11 @@
           data-aos="fade-up" data-aos-delay="200">
           <h1>Badan Pusat Statistik <br> Kota Malang</h1>
           <h2>Melayani dengan Profesional, Integritas, dan Amanah</h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="/bukutamu" class="btn-get-started scrollto">Form Tamu</a>
-            <a href="https://www.youtube.com/watch?v=iTYmojXCpIw" class="glightbox btn-watch-video"><i
-                class="bi bi-play-circle"></i><span>Lihat Kantor BPS</span></a>
+          <div class="d-flex justify-content-between justify-content-lg-start">
+            <a href="/visitor" class="btn-get-started scrollto">Buku Tamu Biasa</a>
+            <a href="/bukutamu" class="btn-get-started scrollto">Buku Tamu Data</a>
+            <a href="https://malangkota.bps.go.id" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Kunjungi Website BPS</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -82,7 +83,7 @@
 
   <main id="main">
 
-    <!-- ======= Clients Section ======= -->
+    <!-- ======= Clients Section =======
     <section id="clients" class="clients section-bg">
       <div class="container">
         <div class="row" data-aos="zoom-in">
@@ -113,7 +114,7 @@
         </div>
 
       </div>
-    </section><!-- End Cliens Section -->
+    </section>End Cliens Section -->
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">

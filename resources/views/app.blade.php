@@ -83,7 +83,7 @@
     @include('Layouts.js')
 
     @yield('script')
-
+    @livewireScripts()
 </body>
 
 </html>

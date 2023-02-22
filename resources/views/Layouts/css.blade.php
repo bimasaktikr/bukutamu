@@ -19,4 +19,3 @@
     <link href="{{ asset('/admin/css/dataTable.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/user/css/feedback.css') }}" rel="stylesheet">
 
-</head>

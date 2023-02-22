@@ -19,4 +19,4 @@
     <link href="<?php echo e(asset('/admin/css/dataTable.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('/user/css/feedback.css')); ?>" rel="stylesheet">
 
-</head><?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/Layouts/css.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/Layouts/css.blade.php ENDPATH**/ ?>

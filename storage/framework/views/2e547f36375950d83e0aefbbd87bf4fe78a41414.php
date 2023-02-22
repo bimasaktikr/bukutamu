@@ -36,7 +36,7 @@
     </li>
     <?php endif; ?>
 
-    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('role',['Super Admin','Admin'])): ?>
+    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('role',['Super Admin','admin'])): ?>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo e(url('/')); ?>">
             <i class="fas fa-users"></i>

@@ -80,7 +80,9 @@
     <?php echo $__env->make('Layouts.js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php echo $__env->yieldContent('script'); ?>
+    <?php echo \Livewire\Livewire::scripts(); ?>
 
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/app.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\xampp\htdocs\bukutamu\resources\views/app.blade.php ENDPATH**/ ?>
