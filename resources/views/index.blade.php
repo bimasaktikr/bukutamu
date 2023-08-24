@@ -94,21 +94,11 @@
         @enderror --}}
       </div>
 
-      <!-- form tambahan untuk pilih tujuan kunjungan -->
-      <div class="form-group mb-3">
-        <label class="purpose" for="purposevtwo" style="color:#000000">Keperluan Anda</label>
-        <select class="custom-select my-1 mr-sm-2" name="purposevtwo" id="purposevtwo" required>
-        <option selected="false" disabled="disabled">Silakan Pilih Keperluan Anda</option>
-          @foreach ($purposevoltwo as $purpose2)
-            <option value="{{ $purpose2->id }}">{{ $purpose2->purposevtwo }}</option>
-          @endforeach
-        </select>
+      <div class="index-btn-wrapper">
+        <div class="index-btn" onclick="run(1, 2);">Next</div>
       </div>
-      <br><br>
     </div>
 
-    
-    <div class="row" id="tabrow-1">
 
       <div class="tab" id="tab-2">
         <h3 style="text-align: center; font-family: sans-serif;">Riwayat Pendidikan</h3>
@@ -160,22 +150,62 @@
       </div>
   
       <div class="tab" id="tab-3">
-        <h3 style="text-align: center; font-family: sans-serif;">Media Pelayanan</h3>
-  
+        <h3 style="text-align: center; font-family: sans-serif;">Jenis Pelayanan</h3>  
         <div class="input-group">
           <div class="form-group mb-3">
-            <label class="label" for="media" style="color:#000000">Media Pelayanan</label>
-            <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" style="font-size: 14px;">
-              <option selected="false" disabled="disabled">Silakan Pilih Media Pelayanan</option>
-              @foreach ($media as $p)
-              <option value="{{ $p->id }}">{{$p->media_type}}</option>
+            <label class="label" for="service" style="color:#000000">Keperluan Anda</label>
+            <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+              <option selected="false" disabled="disabled">Silakan Pilih Keperluan Anda</option>
+              @foreach ($service as $j)
+              <option value="{{ $j->id }}">{{$j->service_type}}</option>
               @endforeach
             </select>
           </div>
         </div>
   
+        <div class="index-btn-wrapper">
+          <div class="index-btn" onclick="run(3, 2);">Previous</div>
+          <div class="index-btn" onclick="run(3, 4);">Next</div>
+        </div>
+      </div>
+
+      <div class="tab" id="tab-4">
+        <h3 style="text-align: center; font-family: sans-serif;">Tujuan Kunjungan</h3>
+
         <div class="input-group">
           <div class="form-group mb-3">
+            <label class="label" for="service" style="color:#000000">Keperluan Kunjungan</label>
+            <select class="custom-select my-1 mr-sm-2" name="tujuankunjungan" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+              <option selected="false" disabled="disabled">Silakan Pilih Keperluan Kunjungan</option>
+              @foreach ($tujuankunjungan as $tk)
+              <option value="{{ $p->id }}">{{$tk->tujuankunjungan_type}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+  
+        <div class="index-btn-wrapper">
+          <div class="index-btn" onclick="run(4, 3);">Previous</div>
+          <div class="index-btn" onclick="run(4, 5);">Next</div>
+        </div>
+      </div>
+  
+      <div class="tab" id="tab-5">
+        <h3 style="text-align: center; font-family: sans-serif;">Tujuan Permintaan Data</h3>
+  
+        <div class="input-group">
+          <div class="form-group mb-3">
+            <label class="label" for="purpose" style="color:#000000">Keperluan Permintaan Data</label>
+            <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+              <option selected="false" disabled="disabled">Silakan Pilih Keperluan Permintaan Data</option>
+              @foreach ($purpose as $p)
+              <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
             <label class="label" for="media" style="color:#000000">Kebutuhan Data</label>
             <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Kebutuhan Data</option>
@@ -189,40 +219,17 @@
               </optgroup>
               @endforeach
             </select>
-          </div>
         </div>
-  
-        <div class="input-group">
-          <div class="form-group mb-3">
-            <label class="label" for="service" style="color:#000000">Jenis Pelayanan</label>
-            <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" style="font-size: 14px;">
-              <option selected="false" disabled="disabled">Silakan Pilih Jenis Pelayanan</option>
-              @foreach ($service as $j)
-              <option value="{{ $j->id }}">{{$j->service_type}}</option>
+        <br></br>
+
+        <div class="form-group mb-3">
+            <label class="label" for="media" style="color:#000000">Media Pelayanan</label>
+            <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+              <option selected="false" disabled="disabled">Silakan Pilih Media Pelayanan</option>
+              @foreach ($media as $p)
+              <option value="{{ $p->id }}">{{$p->media_type}}</option>
               @endforeach
             </select>
-          </div>
-        </div>
-  
-        <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(3, 2);">Previous</div>
-          <div class="index-btn" onclick="run(3, 4);">Next</div>
-        </div>
-      </div>
-  
-      <div class="tab" id="tab-4">
-        <h3 style="text-align: center; font-family: sans-serif;">Tujuan Permintaan Data</h3>
-  
-        <div class="input-group">
-          <div class="form-group mb-3">
-            <label class="label" for="purpose" style="color:#000000">Tujuan</label>
-            <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" style="font-size: 14px;">
-              <option selected="false" disabled="disabled">Silakan Pilih Tujuan</option>
-              @foreach ($purpose as $p)
-              <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
-              @endforeach
-            </select>
-          </div>
         </div>
   
         <div class="input-group">
@@ -233,37 +240,8 @@
         </div>
   
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick=" run(4, 3);">Previous</div>
+          <div class="index-btn" onclick=" run(5, 4);">Previous</div>
           <button class="index-btn" type="submit" name="submit" style="background: blue;" id="btn-submit-1">Submit</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="row" id="tabrow-2">
-      <div class="tab" id="tab-5">
-        <h3 style="text-align: center; font-family: sans-serif;">Form Kunjungan</h3>
-        <div class="input-group">
-          <label for="institute" style="color:#000000">Nama instansi</label>
-          <input type="text" name="institute2" id="institute" class="form-control"
-            placeholder="Silakan isi nama instansi anda" maxlength="35" value="{{old('institute')}}"
-            data-parsley-pattern="/(^[a-zA-Z][a-zA-Z\s]{0,35}[a-zA-Z]$)/" data-parsley-trigger="keyup" style="font-size: 14px;"/>
-          {{-- @error('institute')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror --}}
-          </div>
-  
-          <div class="form-group mb-3">
-            <label class="label" for="tujuankunjungan" style="color:#000000">Tujuan Kujungan</label>
-            <select class="custom-select my-1 mr-sm-2" name="tujuankunjungan" id="inlineFormCustomSelectPref" style="font-size: 14px;">
-              <option selected="false" disabled="disabled">Silakan Pilih Tujuan Kunjungan</option>
-              @foreach ($tujuankunjungan as $tk)
-              <option value="{{ $tk->id }}">{{$tk->tujuankunjungan_type}}</option>
-              @endforeach
-            </select>
-          </div>
-          <div class="index-btn-wrapper">
-          <div class="index-btn" onclick=" run(5, 1);">Previous</div>
-          <button class="index-btn" type="submit" name="submit" id="btn-submit-2" style="background: blue;">Submit</button>
         </div>
       </div>
     </div>

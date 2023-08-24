@@ -16,6 +16,9 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         Service::create(
+            ['service_type'     => 'Kunjungan']
+        );
+        Service::create(
             ['service_type'     => 'Permintaan Data']
         );
         Service::create(

@@ -10,7 +10,6 @@ use App\Models\Media;
 use App\Models\Service;
 use App\Models\SubCategory;
 use App\Models\Purpose;
-use App\Models\purposevolumetwo;
 use App\Models\TujuanKunjungan;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -32,12 +31,11 @@ class GuestController extends Controller
         $media = Media::all();
         $service = Service::all();
         $purpose = Purpose::all();
-        $purposevoltwo = purposevolumetwo::all();
         $sub_categories = SubCategory::all();
         $categories = Category::all();
         $tujuankunjungan = TujuanKunjungan::all();
 
-        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose', 'purposevoltwo', 'tujuankunjungan'));
+        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose', 'tujuankunjungan'));
         return dd(Session::all());
         // $purpose = Purpose::all();
 

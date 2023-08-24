@@ -16,16 +16,10 @@ class TujuanKunjungansSeeder extends Seeder
     public function run()
     {
         TujuanKunjungan::create(
-            ['tujuankunjungan_type'     => 'Kunjungan Dinas']
+            ['tujuankunjungan_type'     => 'Studi Banding']
         );
         TujuanKunjungan::create(
-            ['tujuankunjungan_type'     => 'Evaluasi']
-        );
-        TujuanKunjungan::create(
-            ['tujuankunjungan_type'     => 'Pengantaran Data']
-        );
-        TujuanKunjungan::create(
-            ['tujuankunjungan_type'     => 'dll(dan lain lain)']
+            ['tujuankunjungan_type'     => 'Bertemu Pegawai']
         );
     }
 }
