@@ -12,6 +12,7 @@ use App\Models\SubCategory;
 use App\Models\Purpose;
 use App\Models\TujuanKunjungan;
 use App\Models\Category;
+use App\Models\NamaPegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
@@ -34,8 +35,9 @@ class GuestController extends Controller
         $sub_categories = SubCategory::all();
         $categories = Category::all();
         $tujuankunjungan = TujuanKunjungan::all();
+        $pegawai= NamaPegawai::all();
 
-        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose', 'tujuankunjungan'));
+        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose', 'tujuankunjungan', 'pegawai'));
         return dd(Session::all());
         // $purpose = Purpose::all();
 
@@ -161,7 +163,10 @@ class GuestController extends Controller
             $education = $request->education ? $request->education : 1;
             $purpose = $request->purpose ? $request->purpose : 0;
             $sub_categories =$request->sub_categories ? $request->sub_categories : 0 ;
-            $tujuankunjungan = $request->tujuankunjungan;
+            $tujuankunjungan = $request->tujuan_kunjungan ? $request->tujuan_kunjungan : null ;
+            $pegawai = $request->nama_pegawai ? $request->nama_pegawai : null ;
+
+            // dd($name, $hp, $email, $address, $job, $gender, $age, $nipnim, $institute, $education, $purpose, $sub_categories, $tujuankunjungan, $pegawai);
 
             if (Customer::where('hp', $hp)->exists()){
                 /**
@@ -186,12 +191,8 @@ class GuestController extends Controller
 
             //    $transaction = new Transaction();
                $transaction->id_customer =$idcustomer;
-               $transaction->tujuankunjungan=$request->TujuanKunjungan;
-               $transaction->institute = $institute;
+               $transaction->id_tujuan_kunjungan=$tujuankunjungan;
                $transaction->save();
-               $tujuankunjungan = new TujuanKunjungan();
-               $tujuankunjungan->tujuankunjungan_type=$request->tujuankunjungan;
-               $tujuankunjungan->save();
 
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/');
@@ -211,7 +212,6 @@ class GuestController extends Controller
                $data->address = $address;
                $data->id_job = $job;
                $data->id_education = $education;
-               $data->id_kunjungan = $tujuankunjungan;
                $data->save();
 
                /**
@@ -224,16 +224,16 @@ class GuestController extends Controller
                /**
                 * Fetch request to data transaction
                 */
-                if($request->purposevtwo == 2){
-                    $transaction = new Transaction();
-                    $transaction->id_customer =$idcustomer;
-                    $transaction->id_media=$request->media;
-                    $transaction->id_service=$request->service;
-                    $transaction->id_purpose=$request->purpose;
-                    $transaction->data=$request->data;
-                    $transaction->id_sub_categories=$request->sub_categories;
-                    $transaction->save();
-                }
+                $transaction = new Transaction();
+                $transaction->id_customer =$idcustomer;
+                $transaction->id_media=$request->media;
+                $transaction->id_service=$request->service;
+                $transaction->id_purpose=$request->purpose;
+                $transaction->data=$request->data;
+                $transaction->id_sub_categories=$request->sub_categories;
+                $transaction->id_tujuan_kunjungan = $tujuankunjungan;
+                $transaction->id_nama_pegawai = $pegawai;
+                $transaction->save();
 
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/');

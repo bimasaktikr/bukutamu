@@ -26,8 +26,6 @@
   <span class="step" id="step-1"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;
   <span class="step" id="step-2"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;
   <span class="step" id="step-3"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;
-  <span class="step" id="step-4"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;
-  <span class="step" id="step-5"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;
 </div>
 <br>
     <div class="tab" id="tab-1">
@@ -144,7 +142,7 @@
         </div><br><br>
   
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(2, 1);">Previous</div>
+          <div class="index-btn" onclick="run(2, 1);" id="btn-previous">Previous</div>
           <div class="index-btn" onclick="run(2, 3);">Next</div>
         </div>
       </div>
@@ -154,7 +152,7 @@
         <div class="input-group">
           <div class="form-group mb-3">
             <label class="label" for="service" style="color:#000000">Keperluan Anda</label>
-            <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPrefKeperluan" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Anda</option>
               @foreach ($service as $j)
               <option value="{{ $j->id }}">{{$j->service_type}}</option>
@@ -164,35 +162,48 @@
         </div>
   
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(3, 2);">Previous</div>
-          <div class="index-btn" onclick="run(3, 4);">Next</div>
+          <!-- <div class="index-btn" onclick="run(3, 2);">Previous</div> -->
+          <!-- <div class="index-btn" onclick="run(3, 4);">Next</div> -->
         </div>
       </div>
 
-      <div class="tab" id="tab-4">
-        <h3 style="text-align: center; font-family: sans-serif;">Tujuan Kunjungan</h3>
-
+      <div class="tab" id="tab-4" hidden style="margin-top: -40px">
         <div class="input-group">
           <div class="form-group mb-3">
-            <label class="label" for="service" style="color:#000000">Keperluan Kunjungan</label>
-            <select class="custom-select my-1 mr-sm-2" name="tujuankunjungan" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <label class="label" for="tujuan_kunjungan" style="color:#000000">Keperluan Kunjungan</label>
+            <select class="custom-select my-1 mr-sm-2" name="tujuan_kunjungan" id="inlineFormCustomSelectPrefTujuan" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Kunjungan</option>
               @foreach ($tujuankunjungan as $tk)
-              <option value="{{ $p->id }}">{{$tk->tujuankunjungan_type}}</option>
+              <option value="{{ $tk->id }}">{{$tk->tujuankunjungan_type}}</option>
               @endforeach
             </select>
           </div>
         </div>
   
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(4, 3);">Previous</div>
-          <div class="index-btn" onclick="run(4, 5);">Next</div>
+          <div class="index-btn" onclick="run(3, 2);" id="btn-prev-kunjungan">Previous</div>
+          <!-- <div class="index-btn" onclick="run(4, 5);">Next</div> -->
+        </div>
+      </div>
+
+      <div class="tab" id="tab-6" hidden style="margin-top: -40px">
+        <div class="input-group">
+          <div class="form-group mb-3">
+            <label class="label" for="nama_pegawai" style="color:#000000">Nama Pegawai</label>
+            <select class="custom-select my-1 mr-sm-2" name="nama_pegawai" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+              <option selected="false" disabled="disabled">Silakan Pilih Nama Pegawai</option>
+              @foreach ($pegawai as $np)
+              <option value="{{ $np->id }}">{{$np->namapegawai_type}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+        <div class="index-btn-wrapper">
+          <div class="index-btn" onclick="run(4, 3);" id="btn-prev-pegawai">Previous</div>
         </div>
       </div>
   
-      <div class="tab" id="tab-5">
-        <h3 style="text-align: center; font-family: sans-serif;">Tujuan Permintaan Data</h3>
-  
+      <div class="tab" id="tab-5" hidden style="margin-top: -40px">
         <div class="input-group">
           <div class="form-group mb-3">
             <label class="label" for="purpose" style="color:#000000">Keperluan Permintaan Data</label>
@@ -206,7 +217,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label class="label" for="media" style="color:#000000">Kebutuhan Data</label>
+            <label class="label" for="sub_categories" style="color:#000000">Kebutuhan Data</label>
             <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Kebutuhan Data</option>
               @foreach($categories as $group)
@@ -239,11 +250,15 @@
             onkeypress="return event.charCode < 48 || event.charCode>57" data-parsley-trigger="keyup" style="font-size: 14px;"></textarea>
         </div>
   
-        <div class="index-btn-wrapper">
+        <!-- <div class="index-btn-wrapper">
           <div class="index-btn" onclick=" run(5, 4);">Previous</div>
           <button class="index-btn" type="submit" name="submit" style="background: blue;" id="btn-submit-1">Submit</button>
-        </div>
+        </div> -->
       </div>
+      <div class="index-btn-wrapper" id="btn-akhir">
+          <!-- <div class="index-btn" onclick=" run(5, 4);">Previous</div> -->
+          <button class="index-btn" type="submit" name="submit" style="background: blue;" id="btn-submit-1" hidden>Submit</button>
+        </div>
     </div>
       </div>
   </form>
@@ -350,6 +365,68 @@
           }
         });
       })
+
+    $("#inlineFormCustomSelectPrefKeperluan").on("change", function(){
+      // alert($(this).val())
+      $("#tab-5").attr('hidden', true)
+      $("#tab-5").hide()
+      $("#tab-4").attr('hidden', true)
+      $("#tab-4").hide()
+      if($(this).val() == 1){
+        $("#tab-4").attr('hidden', false)
+        $("#tab-4").show()
+        $("#btn-akhir").show()
+        $("#btn-submit-1").hide()
+      } else {
+        $("#tab-5").attr('hidden', false)
+        $("#tab-5").show()
+        $("#btn-akhir").show()
+        $("#btn-submit-1").show()
+      }
+    })
+    
+    $("#inlineFormCustomSelectPrefTujuan").on('change', function(){
+      $("#btn-submit-1").hide()
+      $("#tab-6").hide()
+      $("#btn-submit-1").attr("hidden",true)
+      $("#tab-6").attr("hidden", true)
+      $("#btn-prev-kunjungan").hide()
+      $("#btn-prev-pegawai").hide()
+      if($(this).val() == 1){
+        $("#btn-akhir").show()
+        $("#btn-submit-1").show()
+        $("#btn-submit-1").attr("hidden",false)
+        $("#btn-prev-kunjungan").show()
+      } else {
+        $("#btn-akhir").show()
+        $("#btn-submit-1").show()
+        $("#btn-submit-1").attr("hidden",false)
+        $("#tab-6").show()
+        $("#tab-6").attr("hidden", false)
+        $("#btn-prev-pegawai").show()
+      }
+    })
+
+    $("#btn-previous").on("click", function(){
+      $("#tab-4").hide()
+      $("#tab-5").hide()
+      $("#tab-6").hide()
+      $("#btn-akhir").hide()
+    })
+    $("#btn-prev-kunjungan").on("click", function(){
+      $("#tab-4").hide()
+      $("#tab-5").hide()
+      $("#tab-6").hide()
+      $("#btn-akhir").hide()
+    })
+    $("#btn-prev-pegawai").on("click", function(){
+      $("#tab-4").hide()
+      $("#tab-5").hide()
+      $("#tab-6").hide()
+      $("#btn-akhir").hide()
+    })
+
+    
 
       // $(document).ready (function() {
         // $('#myForm').formValidation({
