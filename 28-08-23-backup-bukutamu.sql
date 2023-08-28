@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2023 at 03:18 AM
+-- Generation Time: Aug 28, 2023 at 05:02 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -470,9 +470,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Wahyu Fajar Robyansyah', 'wahyufajar3110@gmail.com', 'Super Admin', NULL, '$2y$10$k52Mj8e6Em03prsHmqguWeHyWrL9hGm6cKWzLkuRaLGqQOk6SjjGG', NULL, '2023-08-25 14:26:52', '2023-08-25 14:26:52'),
-(2, 'Darman Saragih', 'darman123@gmail.com', 'Super Admin', NULL, '$2y$10$XInPumT.TsVfO9tpaRfQ8uB2JStJFvQlSjPtGm3JVN0/K3Enu.Obq', NULL, '2023-08-25 14:26:52', '2023-08-25 14:26:52'),
-(3, 'Qorina Anindhita', 'orin123@gmail.com', 'Super Admin', NULL, '$2y$10$8jGkhJwHugQUsGJBM7jcru348r1RLfx5I5.mvnUbw7yyNUfj8GI/e', NULL, '2023-08-25 14:26:52', '2023-08-25 14:26:52');
+(1, 'superadmin', 'superadmin@gmail.com', 'Super Admin', NULL, 'superadmin', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -711,7 +709,7 @@ ALTER TABLE `tujuan_kunjungans`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `visitors`
