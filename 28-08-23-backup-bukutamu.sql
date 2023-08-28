@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2023 at 05:02 AM
+-- Generation Time: Aug 28, 2023 at 05:29 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -470,7 +470,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'superadmin', 'superadmin@gmail.com', 'Super Admin', NULL, 'superadmin', NULL, NULL, NULL);
+(6, 'superadmin', 'superadmin@gmail.com', 'Super Admin', NULL, '$2y$10$mWdJXpxw0UZZgLwjJZmbQeFZI0Xh6Tf/Ovd/EANQ0xdpouJznNMVq', NULL, '2023-08-28 03:25:16', '2023-08-28 03:25:16');
 
 -- --------------------------------------------------------
 
@@ -709,7 +709,7 @@ ALTER TABLE `tujuan_kunjungans`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `visitors`
