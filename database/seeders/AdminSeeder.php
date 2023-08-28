@@ -17,24 +17,10 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'     => 'Wahyu Fajar Robyansyah',
-            'email'    => 'wahyufajar3110@gmail.com',
+            'name'     => 'superadmin',
+            'email'    => 'superadmin@gmail.com',
             'role'     => 'Super Admin',
-            'password' => bcrypt('goesfa3110'),
-        ]);
-
-        User::create([
-            'name'     => 'Darman Saragih',
-            'email'    => 'darman123@gmail.com',
-            'role'     => 'Super Admin',
-            'password' => bcrypt('admin1234'),
-        ]);
-
-        User::create([
-            'name'     => 'Qorina Anindhita',
-            'email'    => 'orin123@gmail.com',
-            'role'     => 'Super Admin',
-            'password' => bcrypt('admin1234'),
+            'password' => bcrypt('superadmin'),
         ]);
     }
 }
