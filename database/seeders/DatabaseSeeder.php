@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         JobSeeder::class,
         EducationSeeder::class,
         CategorySeeder::class,
-        SubCategorySeeder::class
+        SubCategorySeeder::class,
+        TujuanKunjungansSeeder::class,
+        NamaPegawaiSeeder::class
     ]);
     }
 }

@@ -19,7 +19,7 @@ class JobSeeder extends Seeder
             ['job_type'     => 'ASN']
         );
         Job::create(
-            ['job_type'     => 'Pelajar']
+            ['job_type'     => 'Pelajar/Mahasiswa']
         );
         Job::create(
             ['job_type'     => 'Dosen/Guru']

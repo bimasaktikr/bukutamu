@@ -10,7 +10,9 @@ use App\Models\Media;
 use App\Models\Service;
 use App\Models\SubCategory;
 use App\Models\Purpose;
+use App\Models\TujuanKunjungan;
 use App\Models\Category;
+use App\Models\NamaPegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
@@ -32,8 +34,10 @@ class GuestController extends Controller
         $purpose = Purpose::all();
         $sub_categories = SubCategory::all();
         $categories = Category::all();
+        $tujuankunjungan = TujuanKunjungan::all();
+        $pegawai= NamaPegawai::all();
 
-        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
+        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose', 'tujuankunjungan', 'pegawai'));
         return dd(Session::all());
         // $purpose = Purpose::all();
 
@@ -44,6 +48,7 @@ class GuestController extends Controller
      *  Function untuk validasi Ajax
      */
     public function validationForm(Request $request){
+        // dd($request()->all());
         if ($request->status == ""){
             $validator = Validator::make($request->all(), [
                 'hp' => [   'required', 'between:10,15',
@@ -115,15 +120,23 @@ class GuestController extends Controller
 
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
-                }
+                case 5 :
+                    $validator = Validator::make($request->all(), [
+                        'TujuanKunjungan' => 'required|min:1',
+                        'institute' => 'required|min:10',
+                        ]);
 
-            }
-        } else {
+                        if ($validator-passes()){
+                            return response()->json(['success'=>'Lolos Validasi #1']);
+                        }
+
+                        return response()->json(['error'=>$validator->errors()->all()]);
+                        break;
+                    }
+                }
+        }else {
             return response()->json(['error'=>$validator->errors()->all()]);
         }
-
-
-
     }
 
     public function saveGuest(Request $request){
@@ -137,18 +150,23 @@ class GuestController extends Controller
         // ]);
 
         // if($validator->passes()){
+            
             $name   = $request->name;
             $hp = $request->hp;
             $email   = $request->email;
             $address = $request->address;
-            $job  = $request->job;
+            $job  = $request->job ? $request->job : 1;
             $gender = $request->gender;
             $age = $request->age;
-            $nipnim= $request->nipnim;
-            $institute= $request->institute;
-            $education = $request->education;
-            $purpose = $request->purpose;
-            $sub_categories =$request->sub_categories;
+            $nipnim= $request->nipnim ? $request->nipnim : 0;
+            $institute= $request->institute ? $request->institute : $request->institute2;
+            $education = $request->education ? $request->education : 1;
+            $purpose = $request->purpose ? $request->purpose : 0;
+            $sub_categories =$request->sub_categories ? $request->sub_categories : 0 ;
+            $tujuankunjungan = $request->tujuan_kunjungan ? $request->tujuan_kunjungan : null ;
+            $pegawai = $request->nama_pegawai ? $request->nama_pegawai : null ;
+
+            // dd($name, $hp, $email, $address, $job, $gender, $age, $nipnim, $institute, $education, $purpose, $sub_categories, $tujuankunjungan, $pegawai);
 
             if (Customer::where('hp', $hp)->exists()){
                 /**
@@ -168,11 +186,18 @@ class GuestController extends Controller
                $transaction->id_purpose=$request->purpose;
                $transaction->data=$request->data;
                $transaction->id_sub_categories=$request->sub_categories;
+            //    $transaction->save();
+
+
+            //    $transaction = new Transaction();
+               $transaction->id_customer =$idcustomer;
+               $transaction->id_tujuan_kunjungan=$tujuankunjungan;
                $transaction->save();
 
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/');
-           } else {
+
+           } else{
                /**
                 * Add a New Customer
                 */
@@ -189,7 +214,6 @@ class GuestController extends Controller
                $data->id_education = $education;
                $data->save();
 
-
                /**
                 * Get ID Customer
                 */
@@ -200,23 +224,21 @@ class GuestController extends Controller
                /**
                 * Fetch request to data transaction
                 */
-
-               $transaction = new Transaction();
-               $transaction->id_customer =$idcustomer;
-               $transaction->id_media=$request->media;
-               $transaction->id_service=$request->service;
-               $transaction->id_purpose=$request->purpose;
-               $transaction->data=$request->data;
-               $transaction->id_sub_categories=$request->sub_categories;
-               $transaction->save();
+                $transaction = new Transaction();
+                $transaction->id_customer =$idcustomer;
+                $transaction->id_media=$request->media;
+                $transaction->id_service=$request->service;
+                $transaction->id_purpose=$request->purpose;
+                $transaction->data=$request->data;
+                $transaction->id_sub_categories=$request->sub_categories;
+                $transaction->id_tujuan_kunjungan = $tujuankunjungan;
+                $transaction->id_nama_pegawai = $pegawai;
+                $transaction->save();
 
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/');
-           }
-        // }
-    }
-
-
+        }  
+    }  
 
     public static function cekcustomer(Request $request){
         // DB::enableQueryLog();
@@ -255,5 +277,8 @@ class GuestController extends Controller
 
         // return $customerJson;
         return $customerArray;
+
+
+       
     }
 }

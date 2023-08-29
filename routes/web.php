@@ -19,14 +19,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
 use App\Http\Controllers\TransController;
 use App\Http\Controllers\RingkasanController;
-use App\Http\Controllers\VisitorController;
-use App\Http\livewire\VisitorForm;
 
 // Customer Page - User
 Route::get('/bukutamu', [GuestController::class, 'formTamu'])->name('/');
 Route::post('/cekcustomer', [GuestController::class, 'cekcustomer'])->name('cekcustomer');
 Route::resource('formTamu', GuestController::class);
-
 /**
  * Route Uji Coba Validasi
  */
@@ -125,9 +122,3 @@ Route::get('/download-pdf-transaction',[TransController::class, 'downloadPDFTran
 // Transaction - Excel dan CSV
 Route::get('/export-excel-transaction',[TransactionController::class, 'exportIntoExcelTransaction']);
 Route::get('/export-csv-transaction',[TransactionController::class, 'exportIntoCSVTransaction']);
-
-/**
- *  Route Group For Visitor
- *  */
-// Route::get("/visitor", [VisitorController::class, 'index']);
-Route::get('/visitor', [VisitorController::class, 'index']);
