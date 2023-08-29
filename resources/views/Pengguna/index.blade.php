@@ -62,7 +62,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+        <div class="order-2 pt-4 col-lg-6 d-flex flex-column justify-content-center pt-lg-0 order-lg-1"
           data-aos="fade-up" data-aos-delay="200">
           <h1>Badan Pusat Statistik <br> Kota Malang</h1>
           <h2>Melayani dengan Profesional, Integritas, dan Amanah</h2>
@@ -72,7 +72,7 @@
                 class="bi bi-play-circle"></i><span>Lihat Kantor BPS</span></a>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <div class="order-1 col-lg-6 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="{{  asset('template/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
         </div>
       </div>
@@ -83,7 +83,7 @@
   <main id="main">
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
+    {{-- <section id="clients" class="clients section-bg">
       <div class="container">
         <div class="row" data-aos="zoom-in">
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
@@ -113,7 +113,7 @@
         </div>
 
       </div>
-    </section><!-- End Cliens Section -->
+    </section><!-- End Cliens Section --> --}}
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
@@ -134,7 +134,7 @@
             </p>
             <a href="https://malangkota.bps.go.id/" class="btn-learn-more">Web BPS Kota Malang</a>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
+          <div class="pt-4 col-lg-6 pt-lg-0">
             <strong>MISI</strong>
             <p style="text-align:justify">
               Menjadi jembatan atau penghubung untuk mendapatkan data antara pengguna dan penyedia layanan data (BPS).
@@ -159,7 +159,7 @@
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
             <img src="{{ asset('template/assets/img/skills.png') }}" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+          <div class="pt-4 col-lg-6 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
             <h3>Ringkasan Data Pengunjung</h3>
             <p>
               Berikut ini merupakan ringkasan jumlah pengguna buku tamu BPS Kota Malang berdasarkan kriteria pekerjaan:
@@ -168,17 +168,17 @@
             <div class="row">
 
               <!-- Data Pengunjung -->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-primary h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-primary text-uppercase">
                           Total Pengunjung</div>
-                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$customer}}</strong> orang</div>
+                        <div class="mb-0 text-gray-800 h5 font-weight"><strong>{{$customer}}</strong> orang</div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-users fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -186,17 +186,17 @@
               </div>
 
               <!-- Data ASN -->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-success h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-success text-uppercase">
                           ASN</div>
-                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$asn}}</strong> orang</div>
+                        <div class="mb-0 text-gray-800 h5 font-weight"><strong>{{$asn}}</strong> orang</div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-user-circle fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -204,22 +204,22 @@
               </div>
 
               <!-- Data Pelajar/Mahasiswa-->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-info h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Pelajar
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-info text-uppercase">Pelajar
                         </div>
                         <div class="row no-gutters align-items-center">
                           <div class="col-auto">
-                            <div class="h5 mb-0 mr-3 font-weight text-gray-800"><strong>{{$student}}</strong> orang
+                            <div class="mb-0 mr-3 text-gray-800 h5 font-weight"><strong>{{$student}}</strong> orang
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-address-card fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-address-card fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -227,17 +227,17 @@
               </div>
 
               <!-- Data Guru/Dosen -->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-dark shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-dark h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-dark text-uppercase mb-1">
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-dark text-uppercase">
                           Guru/Dosen</div>
-                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$lecturer}}</strong> orang</div>
+                        <div class="mb-0 text-gray-800 h5 font-weight"><strong>{{$lecturer}}</strong> orang</div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-address-book fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-address-book fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -245,17 +245,17 @@
               </div>
 
               <!-- Data Peneliti -->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-warning h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-warning text-uppercase">
                           Peneliti</div>
-                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$researcher}}</strong> orang</div>
+                        <div class="mb-0 text-gray-800 h5 font-weight"><strong>{{$researcher}}</strong> orang</div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-american-sign-language-interpreting fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-american-sign-language-interpreting fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -263,17 +263,17 @@
               </div>
 
               <!-- General -->
-              <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-left-secondary shadow h-100 py-2">
+              <div class="mb-4 col-xl-4 col-md-6">
+                <div class="py-2 shadow card border-left-secondary h-100">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-secondary text-uppercase mb-1">
+                      <div class="mr-2 col">
+                        <div class="mb-1 text-sm font-weight-bold text-secondary text-uppercase">
                           Umum</div>
-                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$general_job}}</strong> orang</div>
+                        <div class="mb-0 text-gray-800 h5 font-weight"><strong>{{$general_job}}</strong> orang</div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="text-gray-300 fas fa-comments fa-2x"></i>
                       </div>
                     </div>
                   </div>
@@ -312,7 +312,7 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+          <div class="mt-4 col-xl-3 col-md-6 d-flex align-items-stretch mt-md-0" data-aos="zoom-in"
             data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
@@ -322,7 +322,7 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+          <div class="mt-4 col-xl-3 col-md-6 d-flex align-items-stretch mt-xl-0" data-aos="zoom-in"
             data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
@@ -333,7 +333,7 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+          <div class="mt-4 col-xl-3 col-md-6 d-flex align-items-stretch mt-xl-0" data-aos="zoom-in"
             data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
@@ -352,7 +352,7 @@
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
         <div class="row">
-          <div class="col-lg-9 text-center text-lg-start">
+          <div class="text-center col-lg-9 text-lg-start">
             <h3>Berikan Penilaian - Feedback</h3>
             <p>
               Kritik dan Saran dapat disampaikan melalui tombol penilaian disebelah kanan Anda.
@@ -360,8 +360,8 @@
               terjaga dengan baik. Berikan penilaian secara bebas tanpa paksaan.
             </p>
           </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="feedback">Beri Nilai</a>
+          <div class="text-center col-lg-3 cta-btn-container">
+            <a class="align-middle cta-btn" href="feedback">Beri Nilai</a>
           </div>
         </div>
 
@@ -397,7 +397,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="mt-4 col-lg-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
               <h3>Berbayar</h3>
               <h4>Rp. 5 Rupiah<span>>5 mb Perdokumen</span></h4>
@@ -464,7 +464,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="container footer-bottom clearfix">
+    <div class="container clearfix footer-bottom">
       <div class="copyright">
         &copy; Copyright <strong><span>BPS Kota Malang</span></strong>. All Rights Reserved 2022
       </div>
