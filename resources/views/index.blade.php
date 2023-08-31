@@ -52,9 +52,9 @@
         @enderror --}}
       </div>
 
-      <div class="form-group mb-3">
+      <div class="mb-3 form-group">
         <label class="gender" for="gender" style="color:#000000">Jenis Kelamin</label>
-        <select class="custom-select my-1 mr-sm-2" name="gender" id="gender" value={{collect(old('gender'))}} required style="font-size: 14px;">
+        <select class="my-1 custom-select mr-sm-2" name="gender" id="gender" value={{collect(old('gender'))}} required style="font-size: 14px;">
         <option selected="false" disabled="disabled">Silakan Pilih Jenis Kelamin</option>
           <option value="Pria">Pria</option>
           <option value="Wanita">Wanita</option>
@@ -100,7 +100,7 @@
 
       <div class="tab" id="tab-2">
         <h3 style="text-align: center; font-family: sans-serif;">Riwayat Pendidikan</h3>
-  
+
         <div class="input-group">
           <label for="institute" style="color:#000000">Nama instansi</label>
           <input type="text" name="institute" id="institute" class="form-control"
@@ -110,7 +110,7 @@
           <div class="alert alert-danger">{{ $message }}</div>
           @enderror --}}
         </div>
-  
+
         <div class="input-group">
           <label for="nipnim" style="color:#000000">NIM/NPM</label>
           <input type="text" name="nipnim" id="nipnim" class="form-control" placeholder="Silakan isi nip/nim anda"
@@ -120,39 +120,39 @@
           <div class="alert alert-danger">{{ $message }}</div>
           @enderror --}}
         </div>
-  
-        <div class="form-group mb-3">
+
+        <div class="mb-3 form-group">
           <label class="label" for="job" style="color:#000000">Pekerjaan</label>
-          <select class="custom-select my-1 mr-sm-2" name="job" id="job" style="font-size: 14px;">
+          <select class="my-1 custom-select mr-sm-2" name="job" id="job" style="font-size: 14px;">
             <option selected="false" disabled="disabled">Silakan Pilih Pekerjaan</option>
             @foreach ($job as $p)
             <option value="{{ $p->id }}">{{$p->job_type}}</option>
             @endforeach
           </select>
         </div><br><br>
-  
-        <div class="form-group mb-3">
+
+        <div class="mb-3 form-group">
           <label class="label" for="education" style="color:#000000">Pendidikan</label>
-          <select class="custom-select my-1 mr-sm-2" name="education" id="education" style="font-size: 14px;">
+          <select class="my-1 custom-select mr-sm-2" name="education" id="education" style="font-size: 14px;">
             <option selected="false" disabled="disabled">Silakan Pilih Pendidikan</option>
             @foreach ($education as $p)
             <option value="{{ $p->id }}">{{$p->education_type}}</option>
             @endforeach
           </select>
         </div><br><br>
-  
+
         <div class="index-btn-wrapper">
           <div class="index-btn" onclick="run(2, 1);" id="btn-previous">Previous</div>
           <div class="index-btn" onclick="run(2, 3);">Next</div>
         </div>
       </div>
-  
+
       <div class="tab" id="tab-3">
-        <h3 style="text-align: center; font-family: sans-serif;">Jenis Pelayanan</h3>  
+        <h3 style="text-align: center; font-family: sans-serif;">Jenis Pelayanan</h3>
         <div class="input-group">
-          <div class="form-group mb-3">
+          <div class="mb-3 form-group">
             <label class="label" for="service" style="color:#000000">Keperluan Anda</label>
-            <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPrefKeperluan" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="service" id="inlineFormCustomSelectPrefKeperluan" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Anda</option>
               @foreach ($service as $j)
               <option value="{{ $j->id }}">{{$j->service_type}}</option>
@@ -160,7 +160,7 @@
             </select>
           </div>
         </div>
-  
+
         <div class="index-btn-wrapper">
           <!-- <div class="index-btn" onclick="run(3, 2);">Previous</div> -->
           <!-- <div class="index-btn" onclick="run(3, 4);">Next</div> -->
@@ -169,9 +169,9 @@
 
       <div class="tab" id="tab-4" hidden style="margin-top: -40px">
         <div class="input-group">
-          <div class="form-group mb-3">
+          <div class="mb-3 form-group">
             <label class="label" for="tujuan_kunjungan" style="color:#000000">Keperluan Kunjungan</label>
-            <select class="custom-select my-1 mr-sm-2" name="tujuan_kunjungan" id="inlineFormCustomSelectPrefTujuan" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="tujuan_kunjungan" id="inlineFormCustomSelectPrefTujuan" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Kunjungan</option>
               @foreach ($tujuankunjungan as $tk)
               <option value="{{ $tk->id }}">{{$tk->tujuankunjungan_type}}</option>
@@ -179,7 +179,7 @@
             </select>
           </div>
         </div>
-  
+
         <div class="index-btn-wrapper">
           <div class="index-btn" onclick="run(3, 2);" id="btn-prev-kunjungan">Previous</div>
           <!-- <div class="index-btn" onclick="run(4, 5);">Next</div> -->
@@ -188,9 +188,9 @@
 
       <div class="tab" id="tab-6" hidden style="margin-top: -40px">
         <div class="input-group">
-          <div class="form-group mb-3">
+          <div class="mb-3 form-group">
             <label class="label" for="nama_pegawai" style="color:#000000">Nama Pegawai</label>
-            <select class="custom-select my-1 mr-sm-2" name="nama_pegawai" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="nama_pegawai" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Nama Pegawai</option>
               @foreach ($pegawai as $np)
               <option value="{{ $np->id }}">{{$np->namapegawai_type}}</option>
@@ -202,12 +202,12 @@
           <div class="index-btn" onclick="run(4, 3);" id="btn-prev-pegawai">Previous</div>
         </div>
       </div>
-  
+
       <div class="tab" id="tab-5" hidden style="margin-top: -40px">
         <div class="input-group">
-          <div class="form-group mb-3">
+          <div class="mb-3 form-group">
             <label class="label" for="purpose" style="color:#000000">Keperluan Permintaan Data</label>
-            <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Permintaan Data</option>
               @foreach ($purpose as $p)
               <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
@@ -216,9 +216,9 @@
           </div>
         </div>
 
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
             <label class="label" for="sub_categories" style="color:#000000">Kebutuhan Data</label>
-            <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Kebutuhan Data</option>
               @foreach($categories as $group)
               <optgroup label="{{$group->categories_type }}">
@@ -233,23 +233,23 @@
         </div>
         <br></br>
 
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
             <label class="label" for="media" style="color:#000000">Media Pelayanan</label>
-            <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" style="font-size: 14px;">
+            <select class="my-1 custom-select mr-sm-2" name="media" id="inlineFormCustomSelectPref" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Media Pelayanan</option>
               @foreach ($media as $p)
               <option value="{{ $p->id }}">{{$p->media_type}}</option>
               @endforeach
             </select>
         </div>
-  
+
         <div class="input-group">
           <label for="data" style="color:#000000">Catatan Data</label>
           <textarea type="text" name="data" id="data" placeholder="Silakan isi data spesifik yang anda perlukan"
             class="form-control" rows="10" cols="55" maxlength="50" value="{{old('data')}}"
             onkeypress="return event.charCode < 48 || event.charCode>57" data-parsley-trigger="keyup" style="font-size: 14px;"></textarea>
         </div>
-  
+
         <!-- <div class="index-btn-wrapper">
           <div class="index-btn" onclick=" run(5, 4);">Previous</div>
           <button class="index-btn" type="submit" name="submit" style="background: blue;" id="btn-submit-1">Submit</button>
@@ -309,7 +309,7 @@
   $("#purposevtwo").change(function() {
     $("#btn-submit-1").addClass("d-none")
     $("#btn-submit-2").addClass("d-none")
-    
+
     if (this.value === "1") { // "Kunjungan"
       run(1, 5); // Go to Media Pelayanan tab
       $("#btn-submit-1").remove()
@@ -339,9 +339,9 @@
           data      : {'search':$value},
           success   : function(data)
           {
-            
+
               // dataconv = JSON.parse(data);
-            $.each(data, function (i, id) { 
+            $.each(data, function (i, id) {
               // var $dataString = JSON.stringify(data)
               // console.log(data[0].name);
               // alert(data[0].address);
@@ -361,7 +361,7 @@
               $("#tujuankunjungan option[value='"+data[0].id_job).attr('selected', 'true');
               $("#tujuankunjungan").attr('disabled', true);
             });
-          
+
           }
         });
       })
@@ -384,7 +384,7 @@
         $("#btn-submit-1").show()
       }
     })
-    
+
     $("#inlineFormCustomSelectPrefTujuan").on('change', function(){
       $("#btn-submit-1").hide()
       $("#tab-6").hide()
@@ -426,7 +426,7 @@
       $("#btn-akhir").hide()
     })
 
-    
+
 
       // $(document).ready (function() {
         // $('#myForm').formValidation({
@@ -462,7 +462,7 @@
         // return (false)
         // }
 
-        
+
   </script>
 </body>
 </html>

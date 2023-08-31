@@ -12,3 +12,5 @@ class Media extends Model
     protected $table = "media";
     protected $fillable = ['media_type'];
 }
+
+

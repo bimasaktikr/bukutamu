@@ -21,13 +21,13 @@ class Customer extends Model
     }
 
     public function guestTransaction() {
-    return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class);
     }
 
     /**
-     *  Kalau Pakai Eloquent tinggal 
+     *  Kalau Pakai Eloquent tinggal
      *  $record = Customer::all();
-     * 
+     *
      */
     public static function getCustomer(){
         $records = DB::table('customer')
@@ -37,6 +37,6 @@ class Customer extends Model
         ->get()->toArray();
 
         return $records;
-    }    
     }
+}
 

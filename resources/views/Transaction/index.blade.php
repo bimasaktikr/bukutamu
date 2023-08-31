@@ -12,7 +12,7 @@
         <a href="{{ route('transaction.index')}}" class="btn btn-success btn-refresh"><i
                 class="fa fa-retweet"></i>Refresh</a>
 
-        <a href="#" class="btn btn-primary  btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a href="#" class="btn btn-primary btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter"></i> Filter Tanggal</a>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -54,17 +54,17 @@
     </div>
 
     <div class="card-body">
-        <a href="{{('/download-pdf-transaction')}}" class="btn btn-danger border">PDF Data</a>
-        <a href="{{('/export-excel-transaction')}}" class="btn btn-info border">Excel Data</a>
-        <a href="{{('export-csv-transaction')}}" class="btn btn-dark border">CSV Data</a>
-        <table class="table table-striped border" id="myTable">
-            <thead class="thead-dark text-center">
+        <a href="{{('/download-pdf-transaction')}}" class="border btn btn-danger">PDF Data</a>
+        <a href="{{('/export-excel-transaction')}}" class="border btn btn-info">Excel Data</a>
+        <a href="{{('export-csv-transaction')}}" class="border btn btn-dark">CSV Data</a>
+        <table class="table border table-striped" id="myTable">
+            <thead class="text-center thead-dark">
                 <tr style="text-align: center">
                     <th scope="col">No</th>
                     <th scope="col"><br>Customer</th>
                     <th scope="col">Status Transaksi</th>
-                    {{-- <th scope="col">Id Media</th>
-                    <th scope="col">Id <br> Pelayanan</th> --}}
+                    <th scope="col">Id <br> Pelayanan</th>
+                    <th scope="col">Id Media</th>
                     <th scope="col">Feedback <br>Pelayanan</th>
                     <th scope="col">Feedback <br>Sarana</th>
                     <th scope="col">Feedback <br>Kualitas</th>
@@ -89,16 +89,20 @@
                             class="btn btn-sm btn-danger">Belum dilayani</a>
                         @endif
                     </td>
-                    {{-- <td>{{ $item->media->media_type}}</td>
-                    <td>{{ $item->service->service_type }}</td> --}}
-                    @if ($item->Feedback != null)
-                    <td>{{ $item->Feedback->service }}</td>
-                    <td>{{ $item->Feedback->facility }}</td>
-                    <td>{{ $item->Feedback->dataqualities }}</td>
+                    <td>{{ $item->service->service_type }}</td>
+                    @if ($item->service->id != 1)
+                        <td>{{ $item->media->media_type}}</td>
                     @else
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                        <td></td>
+                    @endif
+                    @if ($item->Feedback != null)
+                        <td>{{ $item->Feedback->service }}</td>
+                        <td>{{ $item->Feedback->facility }}</td>
+                        <td>{{ $item->Feedback->dataqualities }}</td>
+                    @else
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                     @endif
                     <td>{{ $item->created_at }}</td>
                     <td>

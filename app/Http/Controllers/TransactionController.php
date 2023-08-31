@@ -43,6 +43,7 @@ class TransactionController extends Controller
         // $data = "";
 
 
+        // $transaction = Transaction::all();
         $transaction = Transaction::with('Feedback')->get();
         // dd($transaction);
 
@@ -52,7 +53,7 @@ class TransactionController extends Controller
         // ];
         // $data->id = $transaction->id;
 
-        // dd($data);
+        // dd($transaction);
         return view('Transaction.index', compact('transaction'));
     }
 
