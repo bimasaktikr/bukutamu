@@ -140,6 +140,22 @@ class GuestController extends Controller
     }
 
     public function saveGuest(Request $request){
+
+
+        $validatorRules = [
+            'name' => 'required|min:5',
+            'hp' => [
+                'required', 'between:10,15',
+                'regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/'
+            ],
+            'email' => 'required|email|max:255|unique:customer',
+            'address' => 'required|min:15',
+            'age' => 'required|min:1|max:2',
+            // ... (aturan validasi lainnya)
+        ];
+
+        $validator = Validator::make($request->all(), $validatorRules);
+
         /**
          * Validate - Laravel Basic - bimasakti.kr
          * #1 Define validate Submit Button
@@ -238,7 +254,11 @@ class GuestController extends Controller
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/');
         }  
-    }  
+    // }  else {
+    //     Alert::success("Failed");
+    //     return redirect()->back()->withErrors($validator)->withInput();
+    // }
+}
 
     public static function cekcustomer(Request $request){
         // DB::enableQueryLog();

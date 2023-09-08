@@ -4,9 +4,48 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"></h1>
-    <a href="{{url('download-pdf-report')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i>Generate Report</a>
+    <form action="{{ route ('download.pdf.report')}}" method="post">
+        @csrf
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Dari Tanggal</label>
+                <input type="date" id="startDateGenerate" class="form-control datepicker" placeholder="Dari Tanggal"
+                    name="dariGenerate">
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Sampai Tanggal</label>
+                <input type="date" id="endDateGenerate" class="form-control datepicker" placeholder="Sampai Tanggal"
+                    name="sampaiGenerate">
+            </div>
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary"><i
+            class="fas fa-download fa-sm text-white-50"></i>Generate Report</a></button>
+        </div>
+    </form>
+    <!-- <a href="{{url('download-pdf-report')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="
+    margin-right: -600px;" id="generate-dashboard"><i
+            class="fas fa-download fa-sm text-white-50"></i>Generate Report</a> -->
+    <div>
+        <form action="{{ route ('filter.dashboard')}}" method="post">
+            @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Dari Tanggal</label>
+                    <input type="date" class="form-control datepicker" placeholder="Dari Tanggal"
+                        name="dari" id="startDateFilter">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Sampai Tanggal</label>
+                    <input type="date" class="form-control datepicker" placeholder="Sampai Tanggal"
+                        name="sampai" id="endDateFilter">
+                </div>
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
+
 
 <!-- Content Row -->
 <h4 class="mb-0 text-center">Data Customer - Berdasarkan Pekerjaan</h4><br>
@@ -53,8 +92,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Pelajar/Mahasiswa
-                        </div>
+                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Pelajar/Mahasiswa</div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
                                 <div class="h5 mb-0 mr-3 font-weight text-gray-800"><strong>{{$student}}</strong> orang
@@ -132,6 +170,7 @@
     <h4 class="mb-0 text-center">Data Customer - Berdasarkan Pendidikan</h4><br>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script type="text/javascript">
+
         // Menampilkan visualisasi Data Customer - Berdasarkan Pendidikan
 window.onload = function () {
 	var chart = new CanvasJS.Chart("chartContainer", {
@@ -170,10 +209,11 @@ window.onload = function () {
 		toolTipContent: "<b>{name}</b><br>Jumlah: {x} transaksi",
 		indexLabel: "{name} - {y}%",
 		dataPoints: [
-			{ y: ({{$service1}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service1}}, name: "Permintaan Data", exploded: true },
-			{ y: ({{$service2}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service2}}, name: "Konsultasi Data" },
-			{ y: ({{$service3}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service3}}, name: "Rekomendasi Data Sektoral", },
-            { y: ({{$service4}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service4}}, name: "Umum (lain-lain)", exploded: true },
+            { y: ({{$service1}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}+{{$service5}}))*100, x: {{$service1}}, name: "Kunjungan", exploded: true },
+			{ y: ({{$service2}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}+{{$service5}}))*100, x: {{$service2}}, name: "Permintaan Data" , },
+			{ y: ({{$service3}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}+{{$service5}}))*100, x: {{$service3}}, name: "Konsultasi Data" , },
+			{ y: ({{$service4}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}+{{$service5}}))*100, x: {{$service4}}, name: "Rekomendasi Data Sektoral", },
+            { y: ({{$service5}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}+{{$service5}}))*100, x: {{$service5}}, name: "Umum (lain-lain)", exploded: true },
 		]
 	}]
 });

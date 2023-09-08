@@ -37,6 +37,11 @@ class Customer extends Model
         ->get()->toArray();
 
         return $records;
-    }    
+    }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+    
     }
 

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
+    <title>Login Admin</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
 </head>
 

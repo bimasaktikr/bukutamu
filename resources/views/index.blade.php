@@ -155,7 +155,9 @@
             <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPrefKeperluan" style="font-size: 14px;">
               <option selected="false" disabled="disabled">Silakan Pilih Keperluan Anda</option>
               @foreach ($service as $j)
+              @if($j->id != 1)
               <option value="{{ $j->id }}">{{$j->service_type}}</option>
+              @endif
               @endforeach
             </select>
           </div>

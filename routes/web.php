@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\User\GuestController;
+use App\Http\Controllers\User\GuestKunjController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
@@ -19,11 +20,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
 use App\Http\Controllers\TransController;
 use App\Http\Controllers\RingkasanController;
+use App\Http\Controllers\RingkasanKunjunganController;
 
-// Customer Page - User
+// Customer Page - User Permintaan Data
 Route::get('/bukutamu', [GuestController::class, 'formTamu'])->name('/');
 Route::post('/cekcustomer', [GuestController::class, 'cekcustomer'])->name('cekcustomer');
 Route::resource('formTamu', GuestController::class);
+
+// Customer Page - User Kunjungan
+Route::get('/bukukunjungan', [GuestKunjController::class, 'formTamu'])->name('/');
+Route::post('/cekcustomer', [GuestKunjController::class, 'cekcustomer'])->name('cekcustomer');
+Route::resource('formTamu', GuestKunjController::class);
 /**
  * Route Uji Coba Validasi
  */
@@ -32,6 +39,9 @@ Route::post('/validationForm', [GuestController::class, 'validationForm'])->name
 
  // User Page
 Route::post('/simpan-bukutamu', [GuestController::class, 'saveGuest'])->name('simpan-bukutamu');
+
+ // User Page
+ Route::post('/simpan-bukukunjungan', [GuestKunjController::class, 'saveGuest'])->name('simpan-bukukunjungan');
 
 // Customer Page - Admin
 Route::get('admin/tamu', [CustomerController::class, 'index'])->name('admin-tamu');
@@ -100,8 +110,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [App\Http\Controllers\RingkasanController::class, 'index'])->name('index');
 
+// Home Page Kunjungan
+Route::get('/kunjungan', [App\Http\Controllers\HomeKunjunganController::class, 'index'])->name('homekunjungan');
+
+Route::get('/kunjungan', [App\Http\Controllers\RingkasanKunjunganController::class, 'index'])->name('index');
+
 //Admin List Page
 Route::resource('data-admin', UserController::class);
+
+Route::group(['prefix'=>config('admin.prefix'),'namespace'=>'App\\Http\\Controllers',],function (){
+    // Route::group(['middleware' => ['auth','admin']], function () {
+        
+        Route::get('/login', [LoginController::class, 'login'])->name('admin.login');
+        Route::post('/login', [LoginController::class, 'login']);
+        Route::post('/logout',[LoginController::class, 'logout'])->name('admin.logout');
+        
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::post('filter-dashboard', [dashboardController::class, 'filter'])->name('filter.dashboard');
+    });
+
 
 // Customer - PDF
 Route::get('/get-all-customer',[CustController::class, 'getAllCustomer']);
@@ -109,7 +136,13 @@ Route::get('/download-pdf',[CustController::class, 'downloadPDF']);
 
 // Dashboard - PDF
 Route::get('/get-all-report',[CustController::class, 'getAllReport']);
+// Route::get('/download-pdf-report',[CustController::class, 'downloadPDFReport']);
+Route::post('/download-pdf-report',[CustController::class, 'downloadPDFReport'])->name('download.pdf.report');
+
+// Dashboard - PDF
+Route::get('/get-all-report',[CustController::class, 'getAllReport']);
 Route::get('/download-pdf-report',[CustController::class, 'downloadPDFReport']);
+Route::post('index', [DashboardController::class, 'index'])->name('index');
 
 // Customer - Excel dan CSV
 Route::get('/export-excel',[CustomerController::class, 'exportIntoExcel']);
